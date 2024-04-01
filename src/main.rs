@@ -77,7 +77,11 @@ fn plot_byte_distribution(
 
     chart.draw_series(
         Histogram::vertical(&chart)
-            .style(RED.filled())
+            .style(ShapeStyle {
+                color: RED.into(),
+                filled: true,
+                stroke_width: 1,
+            })
             .data(frequencies.into_iter().map(|(value, freq)| (value, freq))),
     )?;
 
